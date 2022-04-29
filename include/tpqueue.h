@@ -8,10 +8,10 @@ class TPQueue {
  private:
   struct ITEM {
     T value;
-    ITEM *next;
-    ITEM *prev;
+    ITEM* next;
+    ITEM* prev;
   };
-  ITEM *head, *tail, *current;
+  ITEM* head, * tail, * current;
   TPQueue::ITEM* create(const T& value) {
     ITEM* item = new ITEM;
     item->value = value;
@@ -84,34 +84,36 @@ class TPQueue {
       ITEM* temp = head->next;
       if (temp) {
         temp->prev = nullptr;
-        T value = head->value;
-        delete head;
-        head = temp;
-        if (!head) {
-          tail = nullptr;
-        }
-        return value;
-      } else {
-        throw "UPS";
       }
+      T value = head->value;
+      delete head;
+      head = temp;
+      if (!head) {
+        tail = nullptr;
+      }
+      return value;
+    } else {
+      throw "UPS";
     }
+  }
     
-    T rmTail() {
+  T rmTail() {
     if (head && tail) {
       ITEM* temp = tail->prev;
       if (temp) {
         temp->next = nullptr;
-        T value = tail->value;
-        delete tail;
-        tail = temp;
-        if (!tail) {
-          head = nullptr;
-        }
-        return value;
-      } else {
-        throw "UPS";
       }
+      T value = tail->value;
+      delete tail;
+      tail = temp;
+      if (!tail) {
+        head = nullptr;
+      }
+      return value;
+    } else {
+      throw "UPS";
     }
+  }
   
   T pop() {
     if (isEmpty()) {
