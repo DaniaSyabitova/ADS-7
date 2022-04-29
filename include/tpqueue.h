@@ -38,7 +38,7 @@ class TPQueue {
       temp = temp->next;
     }
     if (!temp && head) {
-      tail->tail = item;
+      tail->next = item;
       tail->next->prev = tail;
       tail = tail->next;
     } else if (!temp && !head) {
@@ -46,7 +46,7 @@ class TPQueue {
     } else if (!temp->prev) {
       head->prev = item;
       head->prev->next = head;
-      head = head->prex;
+      head = head->prev;
     } else {
       temp->prev->next = item;
       item->prev = temp->prev;
