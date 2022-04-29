@@ -19,7 +19,7 @@ class TPQueue {
     item->prev = nullptr;
     return item;
   }
-  
+
  public:
   TPQueue() {
     head = tail = nullptr;
@@ -30,7 +30,7 @@ class TPQueue {
       rmHead();
     }
   }
-  
+
   void push(const T& value) {
     ITEM* temp = head;
     ITEM* item = create(value);
@@ -54,11 +54,11 @@ class TPQueue {
       temp->prev = item;
     }
   }
-  
+
   bool isEmpty() const {
     return !head;
   }
-  
+
   void addHead(const T& value) {
     if (head && tail) {
       head->prev = create(value);
@@ -68,7 +68,7 @@ class TPQueue {
       head = tail = create(value);
     }
   }
-  
+
   void addTail(const T& value) {
     if (head && tail) {
       tail->next = create(value);
@@ -78,7 +78,7 @@ class TPQueue {
       head = tail = create(value);
     }
   }
-  
+
   T rmHead() {
     if (head && tail) {
       ITEM* temp = head->next;
@@ -96,7 +96,7 @@ class TPQueue {
       throw "UPS";
     }
   }
-    
+
   T rmTail() {
     if (head && tail) {
       ITEM* temp = tail->prev;
@@ -114,14 +114,14 @@ class TPQueue {
       throw "UPS";
     }
   }
-  
+
   T pop() {
     if (isEmpty()) {
       throw "Sorry, it`s empty!!!";
     } else {
       return rmHead();
     }
-  } 
+  }
 };
 
 struct SYM {
